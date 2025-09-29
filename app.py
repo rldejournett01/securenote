@@ -46,7 +46,7 @@ def add_note():
 
 @app.route('/delete/<int:note_id>')
 def delete_note(note_id):
-    connection = sqlite3.connection('test.db')
+    connection = sqlite3.connect('test.db')
     cursor = connection.cursor()
     cursor.execute("DELETE FROM notes WHERE id=?", (note_id,))
     connection.commit()
