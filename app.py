@@ -44,7 +44,7 @@ def add_note():
     flash("Note added successfully!", "success")
     return redirect(url_for('index'))
 
-@app.route('delete/<int:note_id>')
+@app.route('/delete/<int:note_id>')
 def delete_note(note_id):
     connection = sqlite3.connection('test.db')
     cursor = connection.cursor()
@@ -54,7 +54,7 @@ def delete_note(note_id):
     flash("Note deleted successfully!", "success")
     return redirect(url_for('index'))
 
-if __name__ == __main__:
+if __name__ == '__main__':
     init_database()
     # BUG 2: Debug mode is on, which is a security no-no for production.
     app.run(debug=True)
