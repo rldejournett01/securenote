@@ -62,10 +62,42 @@ def test_add_note_empty_content():
     except Exception as e:
         print(f" -> FAILED: {e}")
 
+def test_delete_note():
+    """Test Case 3: Deleting a note"""
+    print("Running Test: Deleting a note")
+
+
+    try:
+        driver.refresh()
+        # TODO: Create a note to delete instead of deleting the first one found
+        # title_field = driver.find_element(By.NAME, "title")
+        # content_field = driver.find_element(By.NAME, "content")
+        # submit_button = driver.find_element(By.XPATH, "//button[@type='submit']")
+
+        # title_field.send_keys("Automated Test Note to Delete")
+        # content_field.send_keys("This note will be deleted")
+        # submit_button.click()
+
+        #Find and delete the first link to note
+        delete_link = driver.find_element(By.XPATH, "//a[contains(@href, '/delete/')]")
+        delete_link.click()
+
+        #Wait for the success messsage
+        WebDriverWait(driver, 5).until(
+            EC.presence_of_element_located((By.CLASS_NAME, "success"))
+        )
+        success_message = driver.find_element(By.CLASS_NAME, "success").text
+        assert "deleted" in success_message.lower()
+        print(" -> PASSED (Note deleted)")
+
+    except Exception as e:
+        print(f" -> FAILED: {e}")
+
 if __name__ == "__main__":
 
     test_add_valid_note()
     test_add_note_empty_content()
+    test_delete_note()
 
     #See result then quit
     time.sleep(3)
