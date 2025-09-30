@@ -31,7 +31,10 @@ def add_note():
     title = request.form.get('title')
     content = request.form.get('content')
 
-    #BUG 1: Title field has no server-side validation (can be empty)
+    #BUG 1: Title field has no server-side validation (can be empty) [FIXED]
+    if not title:
+        flash("Title cannot be empty!", "error")
+        return redirect(url_for('index'))
     if not content:
         flash("Note content cannot be empty!", "error")
         return redirect(url_for('index'))

@@ -48,9 +48,9 @@
 *   **Expected Result:**
     *   The note is added, but the title should display as "Untitled" or similar.
     *   OR, an error message prompts for a title.
-*   **Actual Result:** Note was added, but the title was empty.
-*   **Status:** FAIL
-*   **Bug Found?:** Yes. The note is added with a completely blank title. This is poor user experience.
+*   **Actual Result:** "Title cannot be empty" error flash appears.
+*   **Status:** PASS
+*   **Bug Found?:** Bug fixed. 
 
 ---
 
