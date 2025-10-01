@@ -34,14 +34,14 @@ jobs:
 
     - name: Run unit tests
       run: |
-        python -m pytest tests/test_unit.py -v
+        python -m pytest tests/unit/test_unit.py -v
 
     - name: Run Selenium tests
       run: |
         # Start the app in background and run tests
         python app/app.py &
         sleep 3
-        python -m pytest tests/test_automation.py -v --tb=short
+        python -m pytest tests/functional/test_functional.py -v --tb=short
 
     - name: Test report
       run: |

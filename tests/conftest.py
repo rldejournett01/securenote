@@ -2,6 +2,7 @@ import threading
 import pytest
 import time
 import socket
+import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
@@ -11,6 +12,9 @@ from werkzeug.serving import make_server
 
 from app.app import create_app
 
+# def is_running_in_ci():
+#     """Check if we're running in a CI environment"""
+#     return os.getenv('GITHUB_ACTIONS') == 'true'
 
 @pytest.fixture(scope="session")
 def test_app():

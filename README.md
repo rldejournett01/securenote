@@ -12,4 +12,4 @@ A Flask web application with automated testing and CI pipeline.
 ## Local Development
 ```bash
 pip install -r requirements.txt
-python app/app.py
+python app/app.py"#CI Testing" 
