@@ -39,7 +39,7 @@ def create_app(test_config=None):
         cursor = connection.cursor()
         cursor.execute("SELECT * FROM notes")
         notes = cursor.fetchall()
-        connection.close
+        connection.close()
         return render_template('index.html', notes=notes)
 
     @app.route('/add', methods=['POST'])
@@ -75,6 +75,7 @@ def create_app(test_config=None):
     #init database when app starts
     with app.app_context():
         init_database()
+        
     return app
 
 if __name__ == '__main__':
