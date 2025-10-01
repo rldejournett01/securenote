@@ -25,19 +25,29 @@ jobs:
           pip install -r requirements.txt
           pip install pytest pytest-flask
 
-      - name: Install Chrome and ChromeDriver
+      # Install Chrome only (webdriver-manager will handle ChromeDriver)
+      - name: Install Google Chrome
         run: |
           sudo apt-get update
-          #Install Google Chrome
-          sudo apt-get install -y google-chrome-stable
-          #Install ChromeDriver
+          sudo apt-get install -y wget gnupg
+          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+          echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
           sudo apt-get update
-          sudo apt-get install -y chromium-chromedriver
-          # #Create symlink
-          # sudo ln -sf /usr/bin/chromedrive /usr/local/bin/chromedriver
-          #Verify installations
-          google-chrome --version
-          chromedriver --version
+          sudo apt-get install -y google-chrome-stable
+
+      # - name: Install Chrome and ChromeDriver
+      #   run: |
+      #     sudo apt-get update
+      #     #Install Google Chrome
+      #     sudo apt-get install -y google-chrome-stable
+      #     #Install ChromeDriver
+      #     sudo apt-get update
+      #     sudo apt-get install -y chromium-chromedriver
+      #     # #Create symlink
+      #     # sudo ln -sf /usr/bin/chromedrive /usr/local/bin/chromedriver
+      #     #Verify installations
+      #     google-chrome --version
+      #     chromedriver --version
 
       - name: Run unit tests
         run: |
