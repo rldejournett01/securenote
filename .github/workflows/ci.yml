@@ -33,8 +33,8 @@ jobs:
           #Install ChromeDriver
           sudo apt-get update
           sudo apt-get install -y chromium-chromedriver
-          #Create symlink
-          sudo ln -sf /usr/bin/chromedrive /usr/local/bin/chromedriver
+          # #Create symlink
+          # sudo ln -sf /usr/bin/chromedrive /usr/local/bin/chromedriver
           #Verify installations
           google-chrome --version
           chromedriver --version
