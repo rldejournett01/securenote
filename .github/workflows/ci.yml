@@ -35,20 +35,6 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y google-chrome-stable
 
-      # - name: Install Chrome and ChromeDriver
-      #   run: |
-      #     sudo apt-get update
-      #     #Install Google Chrome
-      #     sudo apt-get install -y google-chrome-stable
-      #     #Install ChromeDriver
-      #     sudo apt-get update
-      #     sudo apt-get install -y chromium-chromedriver
-      #     # #Create symlink
-      #     # sudo ln -sf /usr/bin/chromedrive /usr/local/bin/chromedriver
-      #     #Verify installations
-      #     google-chrome --version
-      #     chromedriver --version
-
       - name: Run unit tests
         run: |
           python -m pytest tests/unit/test_unit.py -v
