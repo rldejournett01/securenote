@@ -16,7 +16,7 @@ pip-delete-this-directory.txt
 .pytest_cache/
 
 #databases
-*.databases
+*.db
 *.sqlite
 *.sqlite3
 *.dump
